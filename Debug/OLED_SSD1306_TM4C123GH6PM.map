@@ -1,0 +1,257 @@
+******************************************************************************
+                  TI ARM Linker Unix v20.2.5                   
+******************************************************************************
+>> Linked Tue Jun 28 22:46:08 2022
+
+OUTPUT FILE NAME:   <OLED_SSD1306_TM4C123GH6PM.out>
+ENTRY POINT SYMBOL: "_c_int00_noinit_noargs"  address: 00001009
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  000017d2  0003e82e  R  X
+  SRAM                  20000000   00008000  00000200  00007e00  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    000017d4   000017d4    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  0000026c    0000026c    00000e66   00000e66    r-x .text
+  000010d4    000010d4    00000700   00000700    r-- .const
+20000000    20000000    00000200   00000000    rw-
+  20000000    20000000    00000200   00000000    rw- .stack
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     tm4c123gh6pm_startup_ccs.obj (.intvecs)
+
+.text      0    0000026c    00000e66     
+                  0000026c    000005e8     main.obj (.text)
+                  00000854    00000344     ssd1306.obj (.text)
+                  00000b98    0000016c     driverlib.lib : gpio.obj (.text:GPIOPadConfigSet)
+                  00000d04    00000118                   : sysctl.obj (.text:SysCtlClockGet)
+                  00000e1c    000000f4                   : sysctl.obj (.text:SysCtlClockSet)
+                  00000f10    0000004c                   : gpio.obj (.text:GPIOPinConfigure)
+                  00000f5c    0000004c                   : i2c.obj (.text:I2CMasterInitExpClk)
+                  00000fa8    00000034                   : sysctl.obj (.text:SysCtlPeripheralEnable)
+                  00000fdc    0000002c                   : gpio.obj (.text:GPIODirModeSet)
+                  00001008    0000002c     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.text:_c_int00_noinit_noargs:_c_int00_noinit_noargs)
+                  00001034    0000001a     driverlib.lib : gpio.obj (.text:GPIOPinTypeGPIOOutput)
+                  0000104e    00000016                   : gpio.obj (.text:GPIOPinTypeGPIOInput)
+                  00001064    00000016                   : gpio.obj (.text:GPIOPinTypeI2C)
+                  0000107a    00000016                   : gpio.obj (.text:GPIOPinTypeI2CSCL)
+                  00001090    0000000c     tm4c123gh6pm_startup_ccs.obj (.text)
+                  0000109c    0000000a     driverlib.lib : i2c.obj (.text:I2CMasterEnable)
+                  000010a6    00000008                   : i2c.obj (.text:I2CMasterBusy)
+                  000010ae    00000008                   : i2c.obj (.text:I2CMasterSlaveAddrSet)
+                  000010b6    00000006                   : gpio.obj (.text:GPIOPinRead)
+                  000010bc    00000006                   : sysctl.obj (.text:SysCtlDelay)
+                  000010c2    00000004                   : i2c.obj (.text:I2CMasterControl)
+                  000010c6    00000004                   : i2c.obj (.text:I2CMasterDataPut)
+                  000010ca    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
+                  000010ce    00000004                                   : exit.c.obj (.text:abort:abort)
+
+.const     0    000010d4    00000700     
+                  000010d4    00000420     ssd1306.obj (.const:bigNumbers)
+                  000014f4    000001e0     ssd1306.obj (.const:ASCII_font5x8)
+                  000016d4    00000090     driverlib.lib : gpio.obj (.const:g_pui32GPIOBaseAddrs)
+                  00001764    0000006c                   : sysctl.obj (.const:g_pui32Xtals)
+                  000017d0    00000002     ssd1306.obj (.const:.string:$P$T0$1)
+                  000017d2    00000002     ssd1306.obj (.const:.string:$P$T1$2)
+
+.cinit     0    00000000    00000000     UNINITIALIZED
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.stack     0    20000000    00000200     UNINITIALIZED
+                  20000000    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.stack)
+                  20000004    000001fc     --HOLE--
+
+__llvm_prf_cnts 
+*          0    20000000    00000000     UNINITIALIZED
+
+MODULE SUMMARY
+
+       Module                         code   ro data   rw data
+       ------                         ----   -------   -------
+    ./
+       ssd1306.obj                    836    1540      0      
+       main.obj                       1512   0         0      
+       tm4c123gh6pm_startup_ccs.obj   12     620       0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         2360   2160      0      
+                                                              
+    /home/gsk/Dokumente/TIA/driverlib/ccs/Debug/driverlib.lib
+       gpio.obj                       582    144       0      
+       sysctl.obj                     582    108       0      
+       i2c.obj                        110    0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         1274   252       0      
+                                                              
+    /opt/ccstudio/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/lib/rtsv7M4_T_le_v4SPD16_eabi.lib
+       boot_cortex_m.c.obj            44     0         0      
+       exit.c.obj                     4      0         0      
+       pre_init.c.obj                 4      0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         52     0         0      
+                                                              
+       Stack:                         0      0         512    
+    +--+------------------------------+------+---------+---------+
+       Grand Total:                   3686   2412      512    
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                   
+-------   ----                   
+000014f4  ASCII_font5x8          
+000010cf  C$$EXIT                
+000005a3  DIGI_OUT               
+0000047f  DIGI_SENS              
+00000493  FAIL_SET               
+00000fdd  GPIODirModeSet         
+00000b99  GPIOPadConfigSet       
+00000f11  GPIOPinConfigure       
+000010b7  GPIOPinRead            
+0000104f  GPIOPinTypeGPIOInput   
+00001035  GPIOPinTypeGPIOOutput  
+00001065  GPIOPinTypeI2C         
+0000107b  GPIOPinTypeI2CSCL      
+000003a3  GPIO_PORTE_CONFIG      
+00000457  GPIO_PORTF_CONFIG      
+000010a7  I2CMasterBusy          
+000010c3  I2CMasterControl       
+000010c7  I2CMasterDataPut       
+0000109d  I2CMasterEnable        
+00000f5d  I2CMasterInitExpClk    
+000010af  I2CMasterSlaveAddrSet  
+0000026d  I2C_3_config           
+0000030b  I2C_sendMultipleBytes  
+000002d7  I2C_sendSingleByte     
+000008cb  OLED_Init              
+0000097d  OLED_clearDisplay      
+00000855  OLED_command           
+0000087d  OLED_data              
+00000963  OLED_displayOff        
+00000959  OLED_displayOn         
+00000b01  OLED_printBigNumber    
+0000096d  OLED_resetDisplay      
+000009d1  OLED_sendChar          
+00000a5d  OLED_sendCharXY        
+00000ac9  OLED_sendStrXY         
+0000089f  OLED_setColAddress     
+000008b5  OLED_setPageAddress    
+00000a29  OLED_setPixelXY        
+000009f3  OLED_setXY             
+00001091  ResetISR               
+00000d05  SysCtlClockGet         
+00000e1d  SysCtlClockSet         
+000010bd  SysCtlDelay            
+00000fa9  SysCtlPeripheralEnable 
+00000561  WATER_LVL              
+20000200  __STACK_END            
+00000200  __STACK_SIZE           
+20000200  __STACK_TOP            
+ffffffff  __TI_pprof_out_hndl    
+ffffffff  __TI_prof_data_size    
+ffffffff  __TI_prof_data_start   
+00000000  __TI_static_base__     
+ffffffff  __binit__              
+ffffffff  __c_args__             
+UNDEFED   __mpu_init             
+20000000  __stack                
+20000000  __start___llvm_prf_cnts
+20000000  __stop___llvm_prf_cnts 
+00001009  _c_int00_noinit_noargs 
+000010cb  _system_pre_init       
+000010cf  abort                  
+000010d4  bigNumbers             
+ffffffff  binit                  
+00000000  g_pfnVectors           
+000006ef  main                   
+000005e1  printscreen            
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                   
+-------   ----                   
+00000000  __TI_static_base__     
+00000000  g_pfnVectors           
+00000200  __STACK_SIZE           
+0000026d  I2C_3_config           
+000002d7  I2C_sendSingleByte     
+0000030b  I2C_sendMultipleBytes  
+000003a3  GPIO_PORTE_CONFIG      
+00000457  GPIO_PORTF_CONFIG      
+0000047f  DIGI_SENS              
+00000493  FAIL_SET               
+00000561  WATER_LVL              
+000005a3  DIGI_OUT               
+000005e1  printscreen            
+000006ef  main                   
+00000855  OLED_command           
+0000087d  OLED_data              
+0000089f  OLED_setColAddress     
+000008b5  OLED_setPageAddress    
+000008cb  OLED_Init              
+00000959  OLED_displayOn         
+00000963  OLED_displayOff        
+0000096d  OLED_resetDisplay      
+0000097d  OLED_clearDisplay      
+000009d1  OLED_sendChar          
+000009f3  OLED_setXY             
+00000a29  OLED_setPixelXY        
+00000a5d  OLED_sendCharXY        
+00000ac9  OLED_sendStrXY         
+00000b01  OLED_printBigNumber    
+00000b99  GPIOPadConfigSet       
+00000d05  SysCtlClockGet         
+00000e1d  SysCtlClockSet         
+00000f11  GPIOPinConfigure       
+00000f5d  I2CMasterInitExpClk    
+00000fa9  SysCtlPeripheralEnable 
+00000fdd  GPIODirModeSet         
+00001009  _c_int00_noinit_noargs 
+00001035  GPIOPinTypeGPIOOutput  
+0000104f  GPIOPinTypeGPIOInput   
+00001065  GPIOPinTypeI2C         
+0000107b  GPIOPinTypeI2CSCL      
+00001091  ResetISR               
+0000109d  I2CMasterEnable        
+000010a7  I2CMasterBusy          
+000010af  I2CMasterSlaveAddrSet  
+000010b7  GPIOPinRead            
+000010bd  SysCtlDelay            
+000010c3  I2CMasterControl       
+000010c7  I2CMasterDataPut       
+000010cb  _system_pre_init       
+000010cf  C$$EXIT                
+000010cf  abort                  
+000010d4  bigNumbers             
+000014f4  ASCII_font5x8          
+20000000  __stack                
+20000000  __start___llvm_prf_cnts
+20000000  __stop___llvm_prf_cnts 
+20000200  __STACK_END            
+20000200  __STACK_TOP            
+ffffffff  __TI_pprof_out_hndl    
+ffffffff  __TI_prof_data_size    
+ffffffff  __TI_prof_data_start   
+ffffffff  __binit__              
+ffffffff  __c_args__             
+ffffffff  binit                  
+UNDEFED   __mpu_init             
+
+[66 symbols]
